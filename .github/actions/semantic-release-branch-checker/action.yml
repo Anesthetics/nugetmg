@@ -9,6 +9,6 @@ runs:
       shell: bash
       run: |
         BRANCH_NAME=${GITHUB_REF##*/}
-        if [[ $BRANCH_NAME =~ ^(master|beta)$ ]]; then
+        if [[ $BRANCH_NAME =~ ^(main|beta)$ ]]; then
         echo "::set-output name=enabled::true"
         fi

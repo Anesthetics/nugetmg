@@ -3,12 +3,12 @@ name: Happy Extension
 on: 
   push:
     branches:
-      - master
-      - development
+      - main
+      - develop
   pull_request:
     branches:
-      - 'development'
-      - 'master'
+      - 'develop'
+      - 'main'
 jobs:
   Build:
     runs-on: ubuntu-latest
@@ -37,14 +37,6 @@ jobs:
         run: npm install
       - name: test react app
         run: npm run test -- --collect-coverage --updateSnapshot
-      - name: collect code coverage
-        uses: codecov/codecov-action@v1
-        with:
-          file: ./coverage/clover.xml
-          flags: unittests 
-          name: codecov-nugetmg
-          fail_ci_if_error: true
-          verbose: true
       - name: apply version number
         uses: ./.github/actions/semantic-release
         if: ${{ steps.semantic-release.outputs.enabled }}
