@@ -3,12 +3,12 @@ name: Happy Extension
 on: 
   push:
     branches:
-      - main
+      - master
       - develop
   pull_request:
     branches:
       - 'develop'
-      - 'main'
+      - 'master'
 jobs:
   Build:
     runs-on: ubuntu-latest
